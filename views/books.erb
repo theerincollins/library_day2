@@ -1,0 +1,7 @@
+<a href="/" role="button" class="btn btn-primary" style="float: right; margin-top: 20px">Return Home</a>
+
+<ul class="book-list" style="font-size: 20px; list-style:none; margin-top:50px; ">
+  <% @books.each do |book| %>
+  <li><a class="book" style="color:purple;" href="/book/<%= book.id() %>"><%= book.title() %>; <%= book.author() %></a></li>
+  <% end %>
+</ul>

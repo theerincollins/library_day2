@@ -41,15 +41,8 @@ patch('/book/:id') do
 end
 
 get('/patron') do
-  greg = Patron.new({:name => "Greg", :id => nil}).save()
-  sandy = Patron.new({:name => "Sandy", :id => nil}).save()
-  @patron_id = nil
   @allpatrons = Patron.all()
   erb(:patron_welcome)
-end
-
-get('/patrons') do
-  erb(:patrons)
 end
 
 get('/patron/:id') do
@@ -63,9 +56,6 @@ get('/process_patron') do
 end
 
 get('/search/author') do
-  author = "J.K. Rowling"
-  new_book = Book.new({:title => "Prisoner", :author => author, :id => nil})
-  new_book.save()
   @author = params.fetch("author")
   @books = Book.find_author(@author)
   @patron_id = params.fetch("id").to_i
@@ -77,4 +67,28 @@ post('/checkout/success') do
   @book_id = params.fetch("book_id").to_i
   @patron.update({:checked_out_books => [@book_id]})
   erb(:patron)
+end
+
+get('/books') do
+  @books = Book.all()
+  erb(:books)
+end
+
+post('/patrons/new') do
+  name = params.fetch("name")
+  Patron.new({:name => name, :id => nil}).save()
+  @patrons = Patron.all()
+  erb(:patrons)
+end
+
+get('/patrons') do
+  @patrons = Patron.all()
+  erb(:patrons)
+end
+
+delete('/books') do
+  book = Book.find_id(params.fetch("id").to_i)
+  book.delete()
+  @books = Book.all()
+  erb(:books)
 end

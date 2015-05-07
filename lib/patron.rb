@@ -11,6 +11,10 @@ class Patron
     @id = result.first().fetch("id").to_i
   end
 
+  def self.clear
+    DB.exec("DELETE FROM patrons *;")
+  end
+
   def self.find (id)
     found_patron = nil
     result = DB.exec("SELECT name FROM patrons WHERE id = #{id};")

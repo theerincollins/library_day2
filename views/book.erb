@@ -1,13 +1,24 @@
+<a href="/" role="button" class="btn btn-primary" style="float: right; margin-top: 20px">Return Home</a>
+
 <div class="header-div">
   <h1><span style="color: purple"><%= @book.title() %></span> Details</h1>
 </div>
+
 <div class="book-div">
 <p>Title: <%= @book.title() %></p>
 <p>Author: <%= @book.author() %></p>
 <p>Number of Copies Available: <%= @number_of_copies %></p>
-
 </div>
-<br><br>
+
+<br>
+
+<form action="/books" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <input name="id" id="id" type="hidden" value="<%= @book.id %>">
+  <button type="submit" class="btn btn-danger">Delete Book!</button>
+</form>
+
+<br>
 <div class="form-div">
   <form action="/book/<%=@book.id()%>" method="post">
     <input name="_method" type="hidden" value="patch">
@@ -34,6 +45,5 @@
 
     <button type="submit" class="btn btn-success">Update!</button>
   </form>
-
-
+  <br><br>
 </div>

@@ -1,29 +1,45 @@
-<h1>Hi Librarian</h1>
+
 
 <div class="row">
   <div class="col-sm-6">
-    <h2>Add a book:</h2>
+    <h1 style="font-size:50px;">Welcome</h1>
   </div>
   <div class="col-sm-6">
-    <a href="/" role="button" class="btn btn-primary" style="float: right;">Return Home</a>
+    <a href="/" role="button" class="btn btn-primary" style="float: right; margin-top: 20px">Return Home</a>
+  </div>
+</div>
+<br><br>
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Add a Book:</h2>
+    <form action="/books/new" method="post">
+      <div class="form-group">
+      <label for="title">Book Title</label>
+      <input name="title" id="title" type="text" class="form-control" placeholder="ex: Harry Potter and the Sorcerer's Stone">
+      </div>
+      <div class="form-group">
+        <label for="author">Book Author</label>
+        <input name="author" id="author" type="text" class="form-control" placeholder="ex: J.K. Rowling">
+      </div>
+
+      <button type="submit" class="btn btn-success">Add Book!</button>
+    </form>
+  </div>
+
+  <div class="col-sm-6">
+    <h2>Add a Patron:</h2>
+
+    <form action="/patrons/new" method="post">
+      <div class="form-group">
+        <label for="name">Patron Name</label>
+        <input name="name" id="name" type="text" class="form-control" placeholder="Harry Potter">
+      </div>
+
+      <button type="submit" class="btn btn-success">Add Patron!</button>
+    </form>
   </div>
 </div>
 
-<form action="/books/new" method="post">
-  <div class="form-group">
-  <label for="title">Book Title</label>
-  <input name="title" id="title" type="text" class="form-control" placeholder="ex: Harry Potter and the Sorcerer's Stone">
-  </div>
-  <div class="form-group">
-    <label for="author">Book Author</label>
-    <input name="author" id="author" type="text" class="form-control" placeholder="ex: J.K. Rowling">
-  </div>
 
-  <button type="submit" class="btn btn-success">Add Book!</button>
-</form>
-<br>
-<ul class="book-list" style="font-size: 20px; list-style:none; ">
-  <% @books.each do |book| %>
-    <li><a class="book" style="color:purple;" href="/book/<%= book.id() %>"><%= book.title() %>; <%= book.author() %></a></li>
-  <% end %>
-</ul>
+<a href='/books'>All Books</a>
+<a href='/patrons'>All Patrons</a>

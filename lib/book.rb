@@ -7,6 +7,10 @@ attr_reader(:title, :author, :id)
     @id = attributes.fetch(:id)
   end
 
+  def self.clear
+    DB.exec("DELETE FROM books *;")
+  end
+
   def save
     result = DB.exec("INSERT INTO books (title, author) VALUES ('#{@title}', '#{@author}') RETURNING id;")
     @id = result.first().fetch("id").to_i
