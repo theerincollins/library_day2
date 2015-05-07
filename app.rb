@@ -76,5 +76,5 @@ post('/checkout/success') do
   @patron = Patron.find(params.fetch("id").to_i())
   @book_id = params.fetch("book_id").to_i
   @patron.update({:checked_out_books => [@book_id]})
-  erb(:checkout_success)
+  erb(:patron)
 end
