@@ -1,0 +1,4 @@
+*As a librarian, I want to create, read, update, delete, and list books in the catalog, so that we can keep track of our inventory.
+*As a librarian, I want to search for a book by author or title, so that I can find a book easily when the book inventory at the library grows large.
+*As a patron, I want to check a book out, so that I can take it home with me.
+*As a patron, I want to know how many copies of a book are on the shelf, so that I can see if any are available. (Hint: make a copies table; a book should have many copies.)

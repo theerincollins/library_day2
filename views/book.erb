@@ -1,0 +1,39 @@
+<div class="header-div">
+  <h1><span style="color: purple"><%= @book.title() %></span> Details</h1>
+</div>
+<div class="book-div">
+<p>Title: <%= @book.title() %></p>
+<p>Author: <%= @book.author() %></p>
+<p>Number of Copies Available: <%= @number_of_copies %></p>
+
+</div>
+<br><br>
+<div class="form-div">
+  <form action="/book/<%=@book.id()%>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <input name="id" id="id" type="hidden" value="<%= @book.id %>"
+
+    <div class="form-group">
+      <label for="title">Edit the title</label>
+      <input name="title" id="title" type="text" class="form-control" placeholder="ex: Harry Potter and the Sorcerer's Stone">
+    </div>
+
+    <div class="form-group">
+      <label for="author">Edit the author</label>
+      <input name="author" id="author" type="text" class="form-control" placeholder="ex: J.K. Rowling">
+    </div>
+
+    <div class="form-group">
+    <label for="add_copies">Add Copies of <%= @book.title() %></label>
+    <select id="add_copies" name="add_copies" type"number">
+      <% range = (0..20).to_a.each do |number| %>
+        <option value="<%= number%>"><%= number%></option>
+      <% end %>
+    </select>
+  </div>
+
+    <button type="submit" class="btn btn-success">Update Title!</button>
+  </form>
+
+
+</div>
