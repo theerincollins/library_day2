@@ -1,0 +1,13 @@
+<h1>Books by <%= @author %></h1>
+
+<form action="/checkout/<%=@patron_id%>" method = "post">
+<input id="id" name="id" type="hidden" value="<%= @patron_id%>">
+<ul class="book-list" style="font-size: 20px; list-style:none; ">
+  <% @books.each do |book| %>
+  <li class="book" style="color:purple;">
+    <%= book.title() %><button class="btn btn-warning" type="submit" style="margin-left:10px;">Checkout!</button>
+  </li>
+  <br>
+  <% end %>
+</ul>
+</form>

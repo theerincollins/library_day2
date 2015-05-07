@@ -43,6 +43,36 @@ end
 get('/patron') do
   greg = Patron.new({:name => "Greg", :id => nil}).save()
   sandy = Patron.new({:name => "Sandy", :id => nil}).save()
+  @patron_id = nil
   @allpatrons = Patron.all()
   erb(:patron_welcome)
+end
+
+get('/patrons') do
+  erb(:patrons)
+end
+
+get('/patron/:id') do
+  @patron = Patron.find(params.fetch("id").to_i)
+  erb(:patron)
+end
+
+get('/process_patron') do
+  patron_id = params.fetch("patron")
+  redirect("/patron/#{patron_id}")
+end
+
+get('/search/author') do
+  author = "J.K. Rowling"
+  new_book = Book.new({:title => "Prisoner", :author => author, :id => nil})
+  new_book.save()
+  @author = params.fetch("author")
+  @books = Book.find_author(@author)
+  @patron_id = params.fetch("id").to_i
+  erb(:books_by_author)
+end
+
+post('/checkout/:id') do
+  @patron = Patron.find(params.fetch("id").to_i())
+  erb(:patron)
 end

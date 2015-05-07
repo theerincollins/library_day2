@@ -11,6 +11,13 @@ class Patron
     @id = result.first().fetch("id").to_i
   end
 
+  def self.find (id)
+    found_patron = nil
+    result = DB.exec("SELECT name FROM patrons WHERE id = #{id};")
+    name = result.first.fetch("name")
+    found_patron = Patron.new({:name => name, :id => id})
+  end
+
   def self.all
     all_patrons = []
     returned_patrons = DB.exec("SELECT * FROM patrons;")

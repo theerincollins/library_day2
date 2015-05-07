@@ -52,6 +52,14 @@ describe(Patron) do
     end
   end
 
+  describe('#find') do
+    it("will find a patron by id") do
+      test_patron = Patron.new({:name => "Rebecca", :id => nil})
+      test_patron.save()
+      expect(Patron.find(test_patron.id())).to(eq(test_patron))
+    end
+  end
+
 
 
 end

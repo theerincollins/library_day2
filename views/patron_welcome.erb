@@ -1,14 +1,17 @@
 <h1>Welcome Patron</h1>
 
-<form action="/patrons" method="get">
+
+<form action = "/process_patron" method= "get">
   <div class="form-group">
     <label for="patron">Find your name:</label>
     <select id="patron" name="patron" type"text">
       <% @allpatrons.each do |patron| %>
-      <option value="<%= patron.name()%>"><%= patron.name() %></option>
-      <% end %>
+    <option value="<%= patron.id()%>"><%= patron.name() %></option>
+      <% @patron_id = patron.id() %>
+    <% end %>
     </select>
   </div>
 
-  <button type="submit" class="btn btn-success">Update!</button>
+
+  <button type="submit" class="btn btn-success">Go!</button>
 </form>
