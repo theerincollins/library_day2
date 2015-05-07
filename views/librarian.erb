@@ -2,10 +2,18 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <h1 style="font-size:50px;">Welcome</h1>
+    <h1 style="font-size:70px;">Welcome</h1>
   </div>
   <div class="col-sm-6">
-    <a href="/" role="button" class="btn btn-primary" style="float: right; margin-top: 20px">Return Home</a>
+    <div class="row">
+      <a href="/" role="button" class="btn btn-primary" style="float: right; margin-top: 20px">Home</a>
+    </div>
+    <div class="row">
+      <a href="/books" role="button" class="btn btn-warning" style="float: right; margin-top: 5px">All Books</a>
+    </div>
+    <div class="row">
+      <a href="/patrons" role="button" class="btn btn-info" style="float: right; margin-top: 5px">All Patrons</a>
+    </div>
   </div>
 </div>
 <br><br>
@@ -32,14 +40,10 @@
     <form action="/patrons/new" method="post">
       <div class="form-group">
         <label for="name">Patron Name</label>
-        <input name="name" id="name" type="text" class="form-control" placeholder="Harry Potter">
+        <input name="name" id="name" type="text" class="form-control" placeholder="ex: Susie Q">
       </div>
 
       <button type="submit" class="btn btn-success">Add Patron!</button>
     </form>
   </div>
 </div>
-
-
-<a href='/books'>All Books</a>
-<a href='/patrons'>All Patrons</a>

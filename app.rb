@@ -92,3 +92,10 @@ delete('/books') do
   @books = Book.all()
   erb(:books)
 end
+
+delete('/patrons') do
+  patron = Patron.find(params.fetch("id").to_i)
+  patron.delete()
+  @patrons = Patron.all()
+  erb(:patrons)
+end

@@ -1,8 +1,18 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1 style="font-size:50px;">All Patrons</h1>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <a href="/" role="button" class="btn btn-primary" style="float: right; margin-top: 20px">Home</a>
+    </div>
+    <div class="row">
+      <a href="/books" role="button" class="btn btn-warning" style="float: right; margin-top: 5px">All Books</a>
+    </div>
+  </div>
+</div>
 
-<a href="/" role="button" class="btn btn-primary" style="float: right; margin-top: 20px">Return Home</a>
-
-
-<ul class="book-list" style="font-size: 20px; list-style:none; margin-top:50px; ">
+<ul class="book-list" style="font-size: 20px; list-style:none; margin-top:10px; ">
   <% @patrons.each do |patron| %>
   <li><a class="book" style="color:purple;" href="/patron/<%= patron.id() %>"><%= patron.name() %></a></li>
   <% end %>
