@@ -72,7 +72,9 @@ get('/search/author') do
   erb(:books_by_author)
 end
 
-post('/checkout/:id') do
+post('/checkout/success') do
   @patron = Patron.find(params.fetch("id").to_i())
-  erb(:patron)
+  @book_id = params.fetch("book_id").to_i
+  @patron.update({:checked_out_books => [@book_id]})
+  erb(:checkout_success)
 end
