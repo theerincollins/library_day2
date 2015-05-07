@@ -1,0 +1,14 @@
+<h1>Welcome Patron</h1>
+
+<form action="/patrons" method="get">
+  <div class="form-group">
+    <label for="patron">Find your name:</label>
+    <select id="patron" name="patron" type"text">
+      <% @allpatrons.each do |patron| %>
+      <option value="<%= patron.name()%>"><%= patron.name() %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-success">Update!</button>
+</form>

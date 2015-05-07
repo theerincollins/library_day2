@@ -39,3 +39,10 @@ patch('/book/:id') do
   @number_of_copies = @book.copies
   erb(:book)
 end
+
+get('/patron') do
+  greg = Patron.new({:name => "Greg", :id => nil}).save()
+  sandy = Patron.new({:name => "Sandy", :id => nil}).save()
+  @allpatrons = Patron.all()
+  erb(:patron_welcome)
+end
